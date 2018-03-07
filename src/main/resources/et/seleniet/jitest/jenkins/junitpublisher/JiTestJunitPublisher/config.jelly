@@ -1,0 +1,22 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <f:entry title="JIRA base URL">
+    <f:textbox field="jiraServer"/>
+  </f:entry>
+  <f:entry title="JIRA Username">
+    <f:textbox field="jiraUser"/>
+  </f:entry>
+  <f:entry title="JIRA password">
+    <f:password field="jiraPwd"/>
+  </f:entry>
+  <f:validateButton title="Test connection" progress="Testing..." method="testConnection" with="jiraServer,jiraUser,jiraPwd" />
+  <f:entry title="JIRA Testplan Key">
+    <f:textbox  field="planKey"/>
+  </f:entry>
+  <f:entry title="JIRA Fix for version">
+    <f:textbox  field="version"/>
+  </f:entry>
+  <f:entry title="Relative path from workspace root to JUnit result XML file">
+    <f:textbox field="xmlFile"/>
+  </f:entry>  
+</j:jelly>
