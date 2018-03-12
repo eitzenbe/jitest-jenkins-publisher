@@ -11,7 +11,7 @@
  </parent>
  <groupId>et.seleniet.jitest.jenkins</groupId>
  <artifactId>junit-publisher</artifactId>
- <version>1.0-SNAPSHOT</version>
+ <version>1.0</version>
  <packaging>hpi</packaging>
 
  <properties>
@@ -23,21 +23,14 @@
   <!-- Jenkins Test Harness version you use to test the plugin. -->
   <!-- For Jenkins version >= 1.580.1 use JTH 2.x or higher. -->
   <jenkins-test-harness.version>2.13</jenkins-test-harness.version>
-  <!-- Other properties you may want to use: ~ hpi-plugin.version: The HPI 
-   Maven Plugin version used by the plugin.. ~ stapler-plugin.version: The Stapler 
-   Maven plugin version required by the plugin. -->
  </properties>
 
  <name>JiTest JUnit Publisher</name>
- <description>TODO</description>
- <url>https://wiki.jenkins-ci.org/display/JENKINS/TODO+Plugin</url>
-
- <!-- The default licence for Jenkins OSS Plugins is MIT. Substitute for 
-  the applicable one if needed. -->
-
+ <description>Allows to export junit xml result files to the JiTest management plugin of JIRA</description>
+ <url>https://github.com/eitzenbe/jitest-jenkins-publisher</url>
  <licenses>
   <license>
-   <name>Proprietary</name>
+   <name>MIT</name>
   </license>
  </licenses>
 

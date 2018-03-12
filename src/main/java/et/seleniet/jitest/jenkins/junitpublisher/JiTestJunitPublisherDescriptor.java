@@ -1,20 +1,15 @@
 package et.seleniet.jitest.jenkins.junitpublisher;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Base64;
-
-import org.acegisecurity.AccessDeniedException;
-import org.apache.commons.io.IOUtils;
-import org.kohsuke.stapler.QueryParameter;
-
 import hudson.Extension;
 import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.Publisher;
 import hudson.util.FormValidation;
+import org.apache.commons.io.IOUtils;
+import org.kohsuke.stapler.QueryParameter;
 
 import javax.xml.bind.DatatypeConverter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 @Extension
 public class JiTestJunitPublisherDescriptor extends BuildStepDescriptor<Publisher> {
@@ -84,11 +79,11 @@ public class JiTestJunitPublisherDescriptor extends BuildStepDescriptor<Publishe
       conn.setRequestProperty("Content-Length", "10");
       String resmsg = conn.getResponseMessage();
       int rescode = conn.getResponseCode();
-      String reshtml = "No Response";
+      String reshtml;
       try {
         reshtml = IOUtils.toString(conn.getInputStream());
       } catch (Exception e) {
-        
+        return FormValidation.error("[HTTP" + rescode +"] Unable to authenticate, got an exception " + e.getMessage());
       }
       if (rescode != 200) { 
         return FormValidation.error("[HTTP" + rescode +"] Unable to authenticate (JIRA Captcha active?), got " + resmsg + " / " + reshtml);
